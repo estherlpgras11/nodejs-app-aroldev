@@ -3,4 +3,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD ["npm", "start"]
+# Expone el puerto que la aplicación usará
+EXPOSE 5000
+# Define la variable de entorno para el puerto
+ENV PORT=5000
+# Comando para iniciar la aplicación
+CMD ["node", "index.js"]
